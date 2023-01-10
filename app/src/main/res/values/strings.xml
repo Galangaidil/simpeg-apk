@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Simpeg</string>
+    <string name="title_activity_dashboard">DashboardActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="submit">Submit</string>
+    <string name="daftar_presensi">Daftar Presensi</string>
+    <string name="login">Login</string>
+    <string name="masukkan_email_dan_password">Masukkan email dan password.</string>
+    <string name="profil">Profil</string>
+    <string name="attendances_created_at">attendances_created_at</string>
+    <string name="attendances_status">attendances_status</string>
+    <string name="selamat_datang">Selamat Datang</string>
+    <string name="welcome_image_desc">Welcome image</string>
+    <string name="kata_pengantar">Silahkan masuk kedalam akun anda</string>
+    <string name="password_hint">Password</string>
+    <string name="email_hint">anda@kodegakure.com</string>
+    <string name="button_login">Login</string>
+    <string name="running_authentication">Menjalankan proses otentikasi</string>
+</resources>
