@@ -4,13 +4,13 @@
     <item
         android:id="@+id/home"
         android:icon="@drawable/ic_baseline_home_24"
-        android:title="Home" />
+        android:title="@string/presensi" />
     <item
         android:id="@+id/attendances"
-        android:icon="@drawable/ic_baseline_calendar_month_24"
-        android:title="Presensi" />
+        android:icon="@drawable/ic_baseline_history_24"
+        android:title="@string/riwayat_presensi" />
     <item
         android:id="@+id/profile"
         android:icon="@drawable/ic_baseline_person_24"
-        android:title="Profile" />
+        android:title="@string/profil_user" />
 </menu>

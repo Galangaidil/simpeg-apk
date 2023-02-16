@@ -9,15 +9,15 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="submit">Submit</string>
-    <string name="daftar_presensi">Daftar Presensi</string>
+    <string name="daftar_presensi">Riwayat Presensi</string>
     <string name="login">Login</string>
     <string name="masukkan_email_dan_password">Masukkan email dan password.</string>
     <string name="profil">Profil</string>
-    <string name="attendances_created_at">attendances_created_at</string>
+    <string name="tanggal_presensi">Tanggal</string>
     <string name="attendances_status">attendances_status</string>
     <string name="selamat_datang">Selamat Datang</string>
     <string name="welcome_image_desc">Welcome image</string>
@@ -26,4 +26,16 @@
     <string name="email_hint">anda@kodegakure.com</string>
     <string name="button_login">Login</string>
     <string name="running_authentication">Menjalankan proses otentikasi</string>
+    <string name="lihat_riwayat_presensi">Lihat Riwayat Presensi</string>
+
+    <string name="tempat_tanggal_lahir">%1$s, %2$s</string>
+    <string name="presensi">Presensi</string>
+    <string name="riwayat_presensi">Riwayat Presensi</string>
+    <string name="profil_user">Profil</string>
+    <string name="jam_masuk">Jam masuk</string>
+
+    <string name="lembur">%1$s Jam</string>
+    <string name="waktu_sekarang">%1$s</string>
+    <string name="tanggal_sekarang">%1$s</string>
+    <string name="loading">Memuat…</string>
 </resources>

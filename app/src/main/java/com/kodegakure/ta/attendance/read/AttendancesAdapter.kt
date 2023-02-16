@@ -1,19 +1,17 @@
 package com.kodegakure.ta.attendance.read
 
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.kodegakure.ta.R
+import com.kodegakure.ta.model.response.RiwayatPresensiResponse
+import java.text.Format
 import java.text.SimpleDateFormat
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 import java.util.*
-import kotlin.collections.ArrayList
 
-class AttendancesAdapter(private val attendances: ArrayList<AttendancesResponse>) :
+class AttendancesAdapter(private val attendances: ArrayList<RiwayatPresensiResponse>) :
     RecyclerView.Adapter<AttendancesAdapter.MyViewHolder>() {
 
 
@@ -25,21 +23,17 @@ class AttendancesAdapter(private val attendances: ArrayList<AttendancesResponse>
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = attendances[position]
-        holder.created_at.text = currentItem.diffForHuman
-        holder.status_attendance.text = currentItem.status.toString()
-            .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.ROOT) else it.toString() }
 
-        if (currentItem.status == "alpha"){
-            holder.status_attendance.setTextColor(Color.parseColor("#ef4444"))
+        if (currentItem.lembur == null){
+            holder.lembur.text = "-"
+        } else {
+            holder.lembur.text = currentItem.lembur.toString() + " jam"
         }
 
-        if (currentItem.status == "hadir"){
-            holder.status_attendance.setTextColor(Color.parseColor("#16a34a"))
-        }
-
-        if (currentItem.status == "izin"){
-            holder.status_attendance.setTextColor(Color.parseColor("#ca8a04"))
-        }
+        holder.tanggal.text = formatDate(currentItem.jam_masuk!!)
+        holder.jamMasuk.text = formatTime(currentItem.jam_masuk)
+        holder.jamPulang.text = currentItem.jam_pulang?.let { formatTime(it) }
+        holder.status.text = currentItem.status
     }
 
     override fun getItemCount(): Int {
@@ -47,13 +41,30 @@ class AttendancesAdapter(private val attendances: ArrayList<AttendancesResponse>
     }
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val created_at: TextView = itemView.findViewById(R.id.created_at_attendance)
-        val status_attendance: TextView = itemView.findViewById(R.id.status_attendance)
+        val tanggal: TextView = itemView.findViewById(R.id.tanggal_presensi)
+        val jamMasuk: TextView = itemView.findViewById(R.id.jam_masuk)
+        val jamPulang: TextView = itemView.findViewById(R.id.jam_pulang)
+        val lembur: TextView = itemView.findViewById(R.id.lembur)
+        val status: TextView = itemView.findViewById(R.id.status_kehadiran)
     }
 
-    fun setData(data: ArrayList<AttendancesResponse>) {
+    fun setData(data: ArrayList<RiwayatPresensiResponse>) {
         attendances.clear()
         attendances.addAll(data)
         notifyDataSetChanged()
+    }
+
+    private fun formatDate(date: String): String {
+        val f: Format = SimpleDateFormat("dd-MM-yyyy", Locale.ROOT)
+        val inputFormat = SimpleDateFormat("yyyy-dd-MM HH:mm:ss", Locale.ROOT)
+        val hasBeenFormatted = inputFormat.parse(date)
+        return f.format(hasBeenFormatted)
+    }
+
+    private fun formatTime(date: String): String {
+        val f: Format = SimpleDateFormat("HH:mm:ss", Locale.ROOT)
+        val inputFormat = SimpleDateFormat("yyyy-dd-MM HH:mm:ss", Locale.ROOT)
+        val hasBeenFormatted = inputFormat.parse(date)
+        return f.format(hasBeenFormatted)
     }
 }

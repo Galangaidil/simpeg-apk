@@ -3,16 +3,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
     tools:context=".HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tanggal_saat_ini"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/tanggal_sekarang"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/waktu_saat_ini"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/waktu_sekarang"
+            android:textAlignment="center"
+            android:textSize="75sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
     <TextView
         android:id="@+id/welcomeMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Home"
-        android:textSize="26sp"
+        android:layout_gravity="center"
+        android:text="@string/loading"
         android:textAlignment="center"
-        android:layout_gravity="center"/>
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/tombolPresensi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:text="Presensi" />
 
 </FrameLayout>
