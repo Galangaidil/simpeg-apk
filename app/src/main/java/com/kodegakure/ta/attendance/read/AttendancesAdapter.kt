@@ -56,14 +56,14 @@ class AttendancesAdapter(private val attendances: ArrayList<RiwayatPresensiRespo
 
     private fun formatDate(date: String): String {
         val f: Format = SimpleDateFormat("dd-MM-yyyy", Locale.ROOT)
-        val inputFormat = SimpleDateFormat("yyyy-dd-MM HH:mm:ss", Locale.ROOT)
+        val inputFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ROOT)
         val hasBeenFormatted = inputFormat.parse(date)
         return f.format(hasBeenFormatted)
     }
 
     private fun formatTime(date: String): String {
-        val f: Format = SimpleDateFormat("HH:mm:ss", Locale.ROOT)
-        val inputFormat = SimpleDateFormat("yyyy-dd-MM HH:mm:ss", Locale.ROOT)
+        val f: Format = SimpleDateFormat("HH.mm", Locale.ROOT)
+        val inputFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ROOT)
         val hasBeenFormatted = inputFormat.parse(date)
         return f.format(hasBeenFormatted)
     }
