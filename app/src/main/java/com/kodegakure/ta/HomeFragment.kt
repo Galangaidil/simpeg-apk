@@ -54,6 +54,7 @@ class HomeFragment : Fragment() {
     private var lon by Delegates.notNull<Double>()
     private lateinit var waktuSaatIni: TextView
     private lateinit var tanggalSaatIni: TextView
+    lateinit var jam: String
 
     // TODO: Rename and change types of parameters
     private var param1: String? = null
@@ -72,12 +73,12 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val homeView = inflater.inflate(R.layout.fragment_home, container, false)
+
+        // inisiasi variable lah
         val welcomeMessage = homeView.findViewById<TextView>(R.id.welcomeMessage)
         val tombolPresensi = homeView.findViewById<Button>(R.id.tombolPresensi)
         waktuSaatIni = homeView.findViewById(R.id.waktu_saat_ini)
         tanggalSaatIni = homeView.findViewById(R.id.tanggal_saat_ini)
-        setWaktuSaatIni()
-        setTanggalSaatIni()
 
         // mematikan tombol presensi
         tombolPresensi.isVisible = false
@@ -118,7 +119,7 @@ class HomeFragment : Fragment() {
             })
             .addOnSuccessListener { location: Location? ->
                 if (location == null)
-                    Toast.makeText(requireActivity(), "Cannot get location.", Toast.LENGTH_SHORT)
+                    Toast.makeText(requireActivity(), "Tidak bisa mendapatkan lokasi.", Toast.LENGTH_SHORT)
                         .show()
                 else {
                     this@HomeFragment.lat = location.latitude
@@ -152,6 +153,10 @@ class HomeFragment : Fragment() {
                             tombol.text = res.button_text
                             jenisPresensi = res.endpoint
                             tombol.isVisible = true
+
+                            waktuSaatIni.text = res.jam
+                            tanggalSaatIni.text = res.tanggal
+                            jam = res.jam
                         } else {
                             tombol.isVisible = false
                         }
@@ -326,7 +331,7 @@ class HomeFragment : Fragment() {
         return PresensiMasukRequest(
             latitude_masuk = lat,
             longitude_masuk = lon,
-            waktu = getWaktu()
+            waktu = jam
         )
     }
 
@@ -335,27 +340,8 @@ class HomeFragment : Fragment() {
         return PresensiPulangRequest(
             latitude_pulang = lat,
             longitude_pulang = lon,
-            waktu = getWaktu()
+            waktu = jam
         )
-    }
-
-    // menampilkan waktu saat ini
-    private fun setWaktuSaatIni() {
-        waktuSaatIni.text = getString(R.string.waktu_sekarang, getFormattedTime())
-    }
-
-    private fun setTanggalSaatIni(){
-        tanggalSaatIni.text = getString(R.string.tanggal_sekarang, getFormattedDate())
-    }
-
-    private fun getFormattedTime(): String{
-        val f: Format = SimpleDateFormat("HH.mm", Locale.ROOT)
-        return f.format(Date())
-    }
-
-    private fun getFormattedDate(): String{
-        val f: Format = SimpleDateFormat("EEE, dd/MM/yyyy", Locale.ROOT)
-        return f.format(Date())
     }
 
     companion object {
