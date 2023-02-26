@@ -35,7 +35,7 @@
     <string name="jam_masuk">Jam masuk</string>
 
     <string name="lembur">%1$s Jam</string>
-    <string name="waktu_sekarang">%1$s</string>
-    <string name="tanggal_sekarang">%1$s</string>
+    <string name="waktu_sekarang">Memuat…</string>
+    <string name="tanggal_sekarang">Memuat…</string>
     <string name="loading">Memuat…</string>
 </resources>
