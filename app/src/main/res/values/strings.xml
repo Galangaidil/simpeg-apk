@@ -38,4 +38,5 @@
     <string name="waktu_sekarang">Memuat…</string>
     <string name="tanggal_sekarang">Memuat…</string>
     <string name="loading">Memuat…</string>
+    <string name="tanda_kalau_anda_telah_melakukan_presensi">Tanda kalau anda telah melakukan presensi</string>
 </resources>
