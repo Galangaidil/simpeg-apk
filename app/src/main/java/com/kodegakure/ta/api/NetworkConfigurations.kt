@@ -13,11 +13,11 @@ import retrofit2.http.*
 class NetworkConfigurations {
     private fun getClient(): Retrofit {
 //        val localUrl = "http://10.0.2.2:8000/api/v1/"
-        val forRealDeviceUrl = "http://192.168.11.64:8000/api/v1/"
-//        val productionUrl: String = "https://simpeg.kodegakure.com/api/v1/"
+//        val forRealDeviceUrl = "http://192.168.11.64:8000/api/v1/"
+        val productionUrl = "https://simpeg.kodegakure.com/api/v1/"
 
         return Retrofit.Builder()
-            .baseUrl(forRealDeviceUrl)
+            .baseUrl(productionUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
